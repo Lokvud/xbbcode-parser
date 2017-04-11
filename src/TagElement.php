@@ -4,7 +4,6 @@ namespace Ermarian\XBBCode;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Render\Markup;
-use Drupal\xbbcode\TagProcessorInterface;
 
 /**
  * A BBCode tag element.
@@ -21,7 +20,7 @@ class TagElement extends NodeElement implements TagElementInterface {
   /**
    * The processor handling this element.
    *
-   * @var \Drupal\xbbcode\TagProcessorInterface
+   * @var \Ermarian\XBBCode\TagProcessorInterface
    */
   private $processor;
 
@@ -76,7 +75,7 @@ class TagElement extends NodeElement implements TagElementInterface {
    *   The argument (everything past the tag name)
    * @param string $source
    *   The source of the content.
-   * @param \Drupal\xbbcode\TagProcessorInterface $processor
+   * @param \Ermarian\XBBCode\TagProcessorInterface $processor
    *   The plugin that will render this tag.
    * @param bool $prepared
    *   Whether the element was prepared.
