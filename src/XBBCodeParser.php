@@ -201,13 +201,13 @@ class XBBCodeParser implements ParserInterface {
    *
    * @param \Ermarian\XBBCode\NodeElementInterface $tree
    *   The tree to decorate.
-   * @param \Ermarian\XBBCode\TagProcessorInterface[] $processors
+   * @param \Ermarian\XBBCode\TagProcessorInterface[]|\ArrayAccess $processors
    *   The processors, keyed by name.
    * @param bool $prepared
    *   TRUE if the text was already prepared once.
    */
   public static function decorateTree(NodeElementInterface $tree,
-                                      array $processors,
+                                      $processors,
                                       $prepared = FALSE) {
     foreach ($tree->getDescendants() as $element) {
       if ($element instanceof TagElementInterface) {
