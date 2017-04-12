@@ -5,7 +5,7 @@ namespace Ermarian\XBBCode;
 /**
  * A tag occurrence as processed by tag plugins.
  */
-interface TagElementInterface {
+interface TagElementInterface extends NodeElementInterface {
 
   /**
    * Retrieve a particular attribute of the element.
