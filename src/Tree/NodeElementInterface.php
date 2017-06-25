@@ -16,6 +16,11 @@ interface NodeElementInterface extends ElementInterface {
   public function append(ElementInterface $element);
 
   /**
+   * @return \Ermarian\XBBCode\Tree\ElementInterface[]
+   */
+  public function getChildren();
+
+  /**
    * Retrieve the rendered content of the element.
    *
    * @return string
