@@ -1,6 +1,6 @@
 <?php
 
-namespace Ermarian\XBBCode;
+namespace Ermarian\XBBCode\Tree;
 
 /**
  * An element in the parser tree.

@@ -1,6 +1,8 @@
 <?php
 
-namespace Ermarian\XBBCode;
+namespace Ermarian\XBBCode\Processor;
+
+use Ermarian\XBBCode\Tree\TagElementInterface;
 
 /**
  * A simple wrapper that allows using callable functions as tag plugins.

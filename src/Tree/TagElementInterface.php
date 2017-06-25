@@ -1,6 +1,8 @@
 <?php
 
-namespace Ermarian\XBBCode;
+namespace Ermarian\XBBCode\Tree;
+
+use Ermarian\XBBCode\Processor\TagProcessorInterface;
 
 /**
  * A tag occurrence as processed by tag plugins.
@@ -97,7 +99,7 @@ interface TagElementInterface extends NodeElementInterface {
   /**
    * Assign a processor to this tag element.
    *
-   * @param \Ermarian\XBBCode\TagProcessorInterface $processor
+   * @param \Ermarian\XBBCode\Processor\TagProcessorInterface $processor
    *   A tag processor.
    */
   public function setProcessor(TagProcessorInterface $processor);

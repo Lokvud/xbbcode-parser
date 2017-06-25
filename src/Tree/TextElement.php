@@ -1,6 +1,6 @@
 <?php
 
-namespace Ermarian\XBBCode;
+namespace Ermarian\XBBCode\Tree;
 
 use Drupal\Component\Render\MarkupInterface;
 use Drupal\Component\Utility\Xss;

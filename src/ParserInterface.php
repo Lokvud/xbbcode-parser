@@ -15,7 +15,7 @@ interface ParserInterface {
    * @param bool $prepared
    *   Whether the text has already been parsed and escaped before.
    *
-   * @return \Ermarian\XBBCode\NodeElementInterface
+   * @return \Ermarian\XBBCode\Tree\NodeElementInterface
    *   The element representing the root of the tree.
    */
   public function parse($text, $prepared = FALSE);

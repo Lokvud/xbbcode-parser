@@ -1,6 +1,6 @@
 <?php
 
-namespace Ermarian\XBBCode;
+namespace Ermarian\XBBCode\Tree;
 
 use Drupal\Core\Render\Markup;
 
@@ -12,7 +12,7 @@ abstract class NodeElement implements NodeElementInterface {
   /**
    * The children of this node.
    *
-   * @var \Ermarian\XBBCode\ElementInterface[]
+   * @var \Ermarian\XBBCode\Tree\ElementInterface[]
    */
   protected $children = [];
 
@@ -48,7 +48,6 @@ abstract class NodeElement implements NodeElementInterface {
         $children[] = $child->render();
         // If the child is also a node element, add its rendered tags.
         if ($child instanceof NodeElementInterface) {
-          /** @var \Ermarian\XBBCode\NodeElementInterface $child */
           $rendered[] = $child->getRenderedTags();
         }
       }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ermarian\XBBCode;
+namespace Ermarian\XBBCode\Tree;
 
 /**
  * Interface for node elements.
@@ -10,7 +10,7 @@ interface NodeElementInterface extends ElementInterface {
   /**
    * Append an element to the children of this element.
    *
-   * @param \Ermarian\XBBCode\ElementInterface $element
+   * @param \Ermarian\XBBCode\Tree\ElementInterface $element
    *   The new element.
    */
   public function append(ElementInterface $element);
@@ -26,7 +26,7 @@ interface NodeElementInterface extends ElementInterface {
   /**
    * Iterate through all descendants of the element.
    *
-   * @return \Ermarian\XBBCode\ElementInterface[]
+   * @return \Ermarian\XBBCode\Tree\ElementInterface[]
    *   Every element below this element.
    */
   public function getDescendants();

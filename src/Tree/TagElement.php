@@ -1,9 +1,11 @@
 <?php
 
-namespace Ermarian\XBBCode;
+namespace Ermarian\XBBCode\Tree;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Render\Markup;
+use Ermarian\XBBCode\Processor\TagProcessorInterface;
+use Ermarian\XBBCode\XBBCodeParser;
 
 /**
  * A BBCode tag element.

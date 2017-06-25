@@ -2,6 +2,12 @@
 
 namespace Ermarian\XBBCode;
 
+use Ermarian\XBBCode\Tree\NodeElementInterface;
+use Ermarian\XBBCode\Tree\RootElement;
+use Ermarian\XBBCode\Tree\TagElement;
+use Ermarian\XBBCode\Tree\TagElementInterface;
+use Ermarian\XBBCode\Tree\TextElement;
+
 /**
  * The standard XBBCode parser.
  */
@@ -198,11 +204,11 @@ class XBBCodeParser implements ParserInterface {
    * @param array[] $tokens
    *   The tokens.
    *
-   * @return \Ermarian\XBBCode\NodeElement
+   * @return \Ermarian\XBBCode\Tree\NodeElement
    *   The element representing the tree.
    */
   public static function buildTree($text, array $tokens) {
-    /** @var \Ermarian\XBBCode\NodeElement[] $stack */
+    /** @var \Ermarian\XBBCode\Tree\NodeElement[] $stack */
     $stack = [new RootElement()];
 
     // Tracks the current position in the text.
@@ -243,7 +249,7 @@ class XBBCodeParser implements ParserInterface {
   /**
    * Assign processors to the tag elements of a tree.
    *
-   * @param \Ermarian\XBBCode\NodeElementInterface $tree
+   * @param \Ermarian\XBBCode\Tree\NodeElementInterface $tree
    *   The tree to decorate.
    * @param \Ermarian\XBBCode\TagProcessorInterface[]|\ArrayAccess $processors
    *   The processors, keyed by name.

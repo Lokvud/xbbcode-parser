@@ -1,6 +1,6 @@
 <?php
 
-namespace Ermarian\XBBCode;
+namespace Ermarian\XBBCode\Tree;
 
 /**
  * The root element of the tag tree.
