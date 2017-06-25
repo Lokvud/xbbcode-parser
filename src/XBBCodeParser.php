@@ -16,7 +16,7 @@ class XBBCodeParser implements ParserInterface {
   /**
    * The plugins for rendering.
    *
-   * @var \Ermarian\XBBCode\TagProcessorInterface[]
+   * @var \Ermarian\XBBCode\Processor\TagProcessorInterface[]
    */
   protected $processors;
 
@@ -251,7 +251,7 @@ class XBBCodeParser implements ParserInterface {
    *
    * @param \Ermarian\XBBCode\Tree\NodeElementInterface $tree
    *   The tree to decorate.
-   * @param \Ermarian\XBBCode\TagProcessorInterface[]|\ArrayAccess $processors
+   * @param \Ermarian\XBBCode\Processor\TagProcessorInterface[]|\ArrayAccess $processors
    *   The processors, keyed by name.
    * @param bool $prepared
    *   TRUE if the text was already prepared once.

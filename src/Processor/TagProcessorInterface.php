@@ -15,7 +15,7 @@ interface TagProcessorInterface {
    * @param \Ermarian\XBBCode\Tree\TagElementInterface $tag
    *   The tag to be rendered.
    *
-   * @return string
+   * @return \Ermarian\XBBCode\Tree\OutputElementInterface
    *   The rendered output.
    */
   public function process(TagElementInterface $tag);
