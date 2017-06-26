@@ -1,0 +1,13 @@
+{
+    "name": "ermarian/xbbcode",
+    "description": "An extensible BBCode parser utility.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christoph Burschka",
+            "email": "christoph@burschka.de"
+        }
+    ],
+    "require": {}
+}
