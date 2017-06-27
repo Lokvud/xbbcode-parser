@@ -78,6 +78,25 @@ interface TagElementInterface extends NodeElementInterface {
   public function getOuterSource(): string;
 
   /**
+   * Retrieve the parent of the current tag.
+   *
+   * This may be either another tag or the root element.
+   *
+   * Note that the parent's rendered content will obviously be incomplete
+   * during rendering, and should not be accessed.
+   *
+   * @return \Ermarian\XBBCode\Tree\NodeElementInterface
+   */
+  public function getParent(): NodeElementInterface;
+
+  /**
+   * Set the parent of the current tag.
+   *
+   * @param \Ermarian\XBBCode\Tree\NodeElementInterface $parent
+   */
+  public function setParent(NodeElementInterface $parent);
+
+  /**
    * Get the assigned processor.
    *
    * @var \Ermarian\XBBCode\Processor\TagProcessorInterface
