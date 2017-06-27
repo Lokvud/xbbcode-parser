@@ -2,6 +2,7 @@
 
 namespace Ermarian\XBBCode\Processor;
 
+use Ermarian\XBBCode\Tree\OutputElement;
 use Ermarian\XBBCode\Tree\OutputElementInterface;
 use Ermarian\XBBCode\Tree\TagElementInterface;
 

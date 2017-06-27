@@ -1,8 +1,6 @@
 <?php
 
-namespace Ermarian\XBBCode\Processor;
-
-use Ermarian\XBBCode\Tree\OutputElementInterface;
+namespace Ermarian\XBBCode\Tree;
 
 class OutputElement implements OutputElementInterface {
 
