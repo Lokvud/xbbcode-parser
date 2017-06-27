@@ -9,5 +9,10 @@
       "email": "christoph@burschka.de"
     }
   ],
-  "require": {}
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Ermarian\\XBBCode\\": "src"
+    }
+  }
 }
