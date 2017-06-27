@@ -146,7 +146,6 @@ class XBBCodeParser implements ParserInterface {
                               '\1',
                               $assignment['unquoted']);
       }
-      // Mark the attribute value as safe.
       $attributes[$assignment['key']] = $value;
     }
     return $attributes;
