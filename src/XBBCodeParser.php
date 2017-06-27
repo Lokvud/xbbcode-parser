@@ -33,7 +33,7 @@ class XBBCodeParser implements ParserInterface {
   /**
    * {@inheritdoc}
    */
-  public function parse($text) {
+  public function parse($text): NodeElementInterface {
     $tokens = static::tokenize($text, $this->processors);
     $tokens = static::validateTokens($tokens);
     $tree = static::buildTree($text, $tokens);
@@ -55,7 +55,7 @@ class XBBCodeParser implements ParserInterface {
    * @return array[]
    *   The tokens.
    */
-  public static function tokenize($text, $allowed = NULL) {
+  public static function tokenize($text, $allowed = NULL): array {
     // Find all opening and closing tags in the text.
     $matches = [];
     preg_match_all("%
@@ -112,10 +112,10 @@ class XBBCodeParser implements ParserInterface {
    * @param string $argument
    *   The string containing the attributes, including initial whitespace.
    *
-   * @return array
+   * @return string[]
    *   An associative array of all attributes.
    */
-  public static function parseAttributes($argument) {
+  public static function parseAttributes($argument): array {
     $assignments = [];
     preg_match_all("/
     (?<=\\s)                                # preceded by whitespace.
@@ -160,7 +160,7 @@ class XBBCodeParser implements ParserInterface {
    * @return array[]
    *   A well-formed list of tokens.
    */
-  public static function validateTokens(array $tokens) {
+  public static function validateTokens(array $tokens): array {
     // Initialize the counter for each tag name.
     $counter = [];
     foreach ($tokens as $token) {
@@ -207,11 +207,11 @@ class XBBCodeParser implements ParserInterface {
    * @param array[] $tokens
    *   The tokens.
    *
-   * @return \Ermarian\XBBCode\Tree\NodeElement
+   * @return \Ermarian\XBBCode\Tree\NodeElementInterface
    *   The element representing the tree.
    */
-  public static function buildTree($text, array $tokens) {
-    /** @var \Ermarian\XBBCode\Tree\NodeElement[] $stack */
+  public static function buildTree($text, array $tokens): NodeElementInterface {
+    /** @var \Ermarian\XBBCode\Tree\ElementInterface[] $stack */
     $stack = [new RootElement()];
 
     // Tracks the current position in the text.

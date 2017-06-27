@@ -2,6 +2,8 @@
 
 namespace Ermarian\XBBCode;
 
+use Ermarian\XBBCode\Tree\NodeElementInterface;
+
 /**
  * An interface for parsers.
  */
@@ -16,6 +18,6 @@ interface ParserInterface {
    * @return \Ermarian\XBBCode\Tree\NodeElementInterface
    *   The element representing the root of the tree.
    */
-  public function parse($text);
+  public function parse($text): NodeElementInterface;
 
 }

@@ -10,9 +10,9 @@ interface ElementInterface {
   /**
    * Render this element to a string.
    *
-   * @return string
+   * @return \Ermarian\XBBCode\Tree\OutputElementInterface
    *   The rendered output.
    */
-  public function render();
+  public function render(): OutputElementInterface;
 
 }

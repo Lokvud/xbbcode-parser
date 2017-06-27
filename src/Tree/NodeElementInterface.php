@@ -18,7 +18,7 @@ interface NodeElementInterface extends ElementInterface {
   /**
    * @return \Ermarian\XBBCode\Tree\ElementInterface[]
    */
-  public function getChildren();
+  public function getChildren(): array;
 
   /**
    * Retrieve the rendered content of the element.
@@ -26,17 +26,17 @@ interface NodeElementInterface extends ElementInterface {
    * @return string
    *   The rendered content.
    */
-  public function getContent();
+  public function getContent(): string;
 
   /**
    * @return \Ermarian\XBBCode\Tree\OutputElementInterface[]
    */
-  public function getRenderedChildren();
+  public function getRenderedChildren(): array;
 
   /**
    * Retrieve the descendants of the node.
    *
-   * @return \Ermarian\XBBCode\Tree\ElementInterface[]
+   * @return \Ermarian\XBBCode\Tree\ElementInterface[]|\Traversable
    *   Every descendant of the node.
    */
   public function getDescendants();

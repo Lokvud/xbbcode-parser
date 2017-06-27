@@ -10,8 +10,8 @@ class RootElement extends NodeElement {
   /**
    * {@inheritdoc}
    */
-  public function render() {
-    return $this->getContent();
+  public function render(): OutputElementInterface {
+    return new OutputElement($this->getContent());
   }
 
 }

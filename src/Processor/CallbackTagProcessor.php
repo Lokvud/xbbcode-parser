@@ -32,7 +32,7 @@ class CallbackTagProcessor extends TagProcessorBase {
    * @return callable
    *   A processing callback.
    */
-  public function getProcess() {
+  public function getProcess(): callable {
     return $this->processFunction;
   }
 
@@ -50,10 +50,7 @@ class CallbackTagProcessor extends TagProcessorBase {
    * {@inheritdoc}
    */
   public function doProcess(TagElementInterface $tag) {
-    // TODO: PHP 7+ supports ($this->process)($tag).
-    if ($process = $this->processFunction) {
-      return $process($tag);
-    }
+    return $this->getProcess()($tag);
   }
 
 }

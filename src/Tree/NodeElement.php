@@ -31,21 +31,21 @@ abstract class NodeElement implements NodeElementInterface {
   /**
    * {@inheritdoc}
    */
-  public function getChildren() {
+  public function getChildren(): array {
     return $this->children;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function getContent() {
+  public function getContent(): string {
     return implode('', $this->getRenderedChildren());
   }
 
   /**
    * {@inheritdoc}
    */
-  public function getRenderedChildren() {
+  public function getRenderedChildren(): array {
     if ($this->output === NULL) {
       $this->output = [];
       foreach ($this->children as $child) {

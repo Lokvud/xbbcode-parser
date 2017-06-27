@@ -2,6 +2,7 @@
 
 namespace Ermarian\XBBCode\Processor;
 
+use Ermarian\XBBCode\Tree\OutputElementInterface;
 use Ermarian\XBBCode\Tree\TagElementInterface;
 
 /**
@@ -18,6 +19,6 @@ interface TagProcessorInterface {
    * @return \Ermarian\XBBCode\Tree\OutputElementInterface
    *   The rendered output.
    */
-  public function process(TagElementInterface $tag);
+  public function process(TagElementInterface $tag): OutputElementInterface;
 
 }
