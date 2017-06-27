@@ -19,8 +19,6 @@ use Ermarian\XBBCode\Tree\TagElementInterface;
  * - attribute.*: A named tag attribute.
  * - content: The rendered content of the tag.
  * - source: The un-rendered source content of the tag.
- *
- * @package Ermarian\XBBCode\Processor
  */
 class TemplateTagProcessor extends TagProcessorBase {
 

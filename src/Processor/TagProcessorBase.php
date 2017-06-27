@@ -8,8 +8,6 @@ use Ermarian\XBBCode\Tree\TagElementInterface;
 
 /**
  * Base tag processor for wrapping the output.
- *
- * @package Ermarian\XBBCode
  */
 abstract class TagProcessorBase implements TagProcessorInterface {
 
