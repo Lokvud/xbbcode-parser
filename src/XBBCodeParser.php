@@ -65,18 +65,20 @@ class XBBCodeParser implements ParserInterface {
         (?'argument'
           (?:(?=\\k'closing')            # only take an argument in opening tags.
             (?:
-              =(?:\\\\.|(?!\\]).)*
+              =(?:\\\\.|[^\\\\\\[\\]])*  # unquoted option must escape brackets.
+              |
+              =(?'quote1'['\"]|&quot;|&\\#039;)
+               (?:\\\\.|(?!\\k'quote1')[^\\\\])*
+               \\k'quote1'
               |
               (?:\\s+[\\w-]+=
                 (?:
-                  (?'quote'['\"]|&quot;|&\\#039;)
-                  (?:\\\\.|(?!\\k'quote').)*
-                  \\k'quote'
+                  (?'quote2'['\"]|&quot;|&\\#039;)
+                  (?:\\\\.|(?!\\k'quote2')[^\\\\])*
+                  \\k'quote2'
                   |
-                  (?:
-                    \\\\.|
-                    (?![\\]\\s\\\\]|\\g'quote').
-                  )*
+                  (?!\\g'quote2')        # unquoted values cannot begin with quotes.
+                  (?:\\\\.|[^\\[\\]\\s\\\\])*
                 )
               )*
             )
@@ -126,32 +128,48 @@ class XBBCodeParser implements ParserInterface {
     (?:
         (?'quote'['\"]|&quot;|&\\#039;)     # quotes may be encoded.
         (?'value'
-          (?:\\\\.|(?!\\\\|\\k'quote').)*   # value can contain the delimiter.
+          (?:\\\\.|(?!\\\\|\\k'quote')[^\\\\])*   # value can contain the delimiter.
         )
         \\k'quote'
         |
         (?'unquoted'
-          (?:\\\\.|(?![\\s\\\\]|\\g'quote').)*
+          (?!\\g'quote')           # unquoted values cannot start with a quote.
+          (?:\\\\.|[^\\s\\\\])*
         )
     )
     (?=\\s|$)/x", $argument, $assignments, PREG_SET_ORDER);
     $attributes = [];
     foreach ($assignments as $assignment) {
       // Strip backslashes from the escape sequences in each case.
-      if (!empty($assignment['quote'])) {
-        $quote = $assignment['quote'];
-        // Single-quoted values escape single quotes and backslashes.
-        $value = str_replace(['\\\\', "\\$quote"], ['\\', $quote], $assignment['value']);
-      }
-      else {
-        // Unquoted values must escape quotes, spaces, backslashes and brackets.
-        $value = preg_replace('/\\\\([\\\\\'\"\s\]]|&quot;|&#039;)/',
-                              '\1',
-                              $assignment['unquoted']);
-      }
-      $attributes[$assignment['key']] = $value;
+      $value = $assignment['value'] ?: $assignment['unquoted'];
+      $attributes[$assignment['key']] = stripslashes($value);
     }
     return $attributes;
+  }
+
+  /**
+   * Parse an option string.
+   *
+   * @param string $argument
+   *   The argument string, including the initial =.
+   *
+   * @return string
+   *   The parsed option value.
+   */
+  public static function parseOption($argument) {
+    if (preg_match("/
+      ^=
+      (?'quote'[\'\"]|&quot;|&\\#039;)
+      (?'value'.*)
+      \\k'quote'
+      $/x", $argument, $match)) {
+      $value = $match['value'];
+    }
+    else {
+      $value = substr($argument, 1);
+    }
+
+    return stripslashes($value);
   }
 
   /**
